@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import 'react-native-gesture-handler';
+import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet } from "react-native";
 
 
@@ -6,20 +7,21 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import ProfileScreen from "./screens/ProfileScreen";
 import CreateScreen from "./screens/CreateScreen";
 import ClosetScreen from "./screens/ClosetScreen";
+import NewCatergoryScreen from './screens/NewCatergoryScreen';
 
 //Import Materials for the Bottom Tab
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs'
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import { NavigationContainer} from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 //Import Icons for the NavBar
-import  MaterialCommunityIcons  from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Tab = createMaterialBottomTabNavigator();
+const Stack = createStackNavigator();
 
-export default function App(){
+const TabNavigator = () => {
   return(
-      <NavigationContainer>
-        <Tab.Navigator 
+            <Tab.Navigator 
         labeled = {false}
         barStyle ={{ backgroundColor: '#454545'}}
         activeColor = "white"
@@ -48,6 +50,17 @@ export default function App(){
             }}/>
 
         </Tab.Navigator>
+  );
+}
+
+export default function App(){
+  return(
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name = "TabNavigator" component={TabNavigator} options ={{headerShown: false}}/>
+          <Stack.Screen name = "NewCatergory" component={NewCatergoryScreen} options ={{headerShown: false}}/>
+        </Stack.Navigator>
+
       </NavigationContainer>
   );
 }
