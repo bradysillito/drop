@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, Text, Image, StyleSheet } from "react-native";
 
 
@@ -15,6 +15,7 @@ import { NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 //Import Icons for the NavBar
+import  MaterialCommunityIcons  from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -54,6 +55,8 @@ const TabNavigator = () => {
 }
 
 export default function App(){
+
+
   return(
       <NavigationContainer>
         <Stack.Navigator>
