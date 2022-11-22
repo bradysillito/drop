@@ -3,7 +3,7 @@ import {View, Text, ScrollView, SafeAreaView, StyleSheet} from 'react-native'
 import ClosetComponent from "../components/ClosetComponent";
 import TopNav from "../components/TopNav";
 
-const AddItems = ({navigation})  => {
+const AddFromClosetScreen = ({navigation})  => {
     return(
 
         <View style = {styles.closetContainer}>
@@ -18,10 +18,18 @@ const AddItems = ({navigation})  => {
                     <ClosetComponent 
                         text = {'Jackets'}
                         navigation = {navigation}
+                        toScreen = {"SubCloset"}
+                    />
+                    <ClosetComponent 
+                        text = {'Pants'}
+                        navigation = {navigation}
                         toScreen = {"Profile"}
                     />
-                    <ClosetComponent text = {'Pants'} />
-                    <ClosetComponent text = {'Shoes'}/>
+                    <ClosetComponent 
+                        text = {'Shoes'}
+                        navigation = {navigation}
+                        toScreen = {"Profile"}
+                    />
                     <ClosetComponent text = {'Hats'}/>
                     <ClosetComponent text = {'Tops'}/>
                 </SafeAreaView>
@@ -31,7 +39,7 @@ const AddItems = ({navigation})  => {
 
 }
 
-export default AddItems;
+export default AddFromClosetScreen;
 
 const styles = StyleSheet.create({
     closetContainer:{

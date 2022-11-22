@@ -8,7 +8,8 @@ import ProfileScreen from "./screens/ProfileScreen";
 import CreateScreen from "./screens/CreateScreen";
 import ClosetScreen from "./screens/ClosetScreen";
 import NewCatergoryScreen from './screens/NewCatergoryScreen';
-import AddItemsScreen from './screens/AddItemsScreen';
+import AddFromClosetScreen from './screens/AddFromCloset';
+import AddFromSubClosetScreen from './screens/AddFromSubClosetScreen';
 
 //Import Materials for the Bottom Tab
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
@@ -66,9 +67,9 @@ export default function App(){
         <Stack.Navigator>
           <Stack.Screen name = "TabNavigator" component={TabNavigator} options ={{headerShown: false}}/>
           <Stack.Screen name = "NewCatergory" component={NewCatergoryScreen} options ={{headerShown: false}}/>
-          <Stack.Screen name = "AddItem" component= {AddItemsScreen} options = {{headerShown: false}}/>
+          <Stack.Screen name = "SubCloset" component={AddFromSubClosetScreen} options ={{headerShown: false}}/>
+          <Stack.Screen name = "AddFromCloset" component= {AddFromClosetScreen} options = {{headerShown: false}}/>
         </Stack.Navigator>
-
       </NavigationContainer>
   );
 }

@@ -72,7 +72,7 @@ const CreateScreen = ({navigation}) => {
                 <View style = {styles.addOptions}>
                         <Text style = {styles.subHeading}>Your Items</Text>
                        
-                       <TouchableOpacity onPress={() => navigation.navigate("AddItem")}>
+                       <TouchableOpacity onPress={() => navigation.navigate("AddFromCloset")}>
                             <MaterialCommunityIcons
                                 name = "plus" 
                                 color={'white'} 
