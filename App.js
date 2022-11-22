@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React, { Component, useState } from 'react';
-import { View, Text, Image, StyleSheet } from "react-native";
+import {StyleSheet, LogBox } from "react-native";
 
 
 //Import Screens
@@ -8,6 +8,7 @@ import ProfileScreen from "./screens/ProfileScreen";
 import CreateScreen from "./screens/CreateScreen";
 import ClosetScreen from "./screens/ClosetScreen";
 import NewCatergoryScreen from './screens/NewCatergoryScreen';
+import AddItemsScreen from './screens/AddItemsScreen';
 
 //Import Materials for the Bottom Tab
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
@@ -16,6 +17,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 //Import Icons for the NavBar
 import  MaterialCommunityIcons  from 'react-native-vector-icons/MaterialCommunityIcons';
+
+LogBox.ignoreLogs(['VirtualizedLists']);
+
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -26,7 +30,7 @@ const TabNavigator = () => {
         labeled = {false}
         barStyle ={{ backgroundColor: '#454545'}}
         activeColor = "white"
-         >
+        initialRouteName='Create'>
           <Tab.Screen 
             name = "Closet"  
             component={ClosetScreen}
@@ -62,6 +66,7 @@ export default function App(){
         <Stack.Navigator>
           <Stack.Screen name = "TabNavigator" component={TabNavigator} options ={{headerShown: false}}/>
           <Stack.Screen name = "NewCatergory" component={NewCatergoryScreen} options ={{headerShown: false}}/>
+          <Stack.Screen name = "AddItem" component= {AddItemsScreen} options = {{headerShown: false}}/>
         </Stack.Navigator>
 
       </NavigationContainer>

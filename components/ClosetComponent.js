@@ -1,15 +1,20 @@
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 const ClosetComponent = (props) => {
+    const navTo = props.toScreen ? props.toScreen : "Closet";
+    const navigation = props.navigation;
+    const itemCount = props.itemCount ? props.itemCount : 0;
+
     return(
-        <View style = {styles.cardWrapper}>
+        <TouchableOpacity style = {styles.cardWrapper}
+            onPress = {()=> navigation ? navigation.navigate(navTo) : alert("No Screen Provided")}>
             <View style = {styles.card}/>
             <View style = {styles.description}>
                 <Text style ={{color: 'white', fontWeight: 'bold', fontSize:24,}}>{props.text}</Text>
-                <Text style ={{color: 'white', fontSize:18,}}>Item Count</Text>
+                <Text style ={{color: 'white', fontSize:18,}}>{itemCount} Items</Text>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 }
 
