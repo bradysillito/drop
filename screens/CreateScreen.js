@@ -2,14 +2,29 @@ import React, { useState } from "react";
 import { Image, View, StyleSheet,Text, SafeAreaView,TouchableOpacity, Alert, Button, ScrollView } from 'react-native'
 import  MaterialCommunityIcons  from 'react-native-vector-icons/MaterialCommunityIcons';
 import PlaceHolderImage from "../assets/data/PlaceHolderImage";
-import ImageGallery from "../components/ImageGallery";
 import BlankImageGallery from "../components/BlankImageGallery";
+import * as ImagePicker from 'expo-image-picker';
 
 
 
 const CreateScreen = ({navigation}) => {
-    const [image, setImage] = useState();
-    
+    const [image, setImage] = useState(null);
+
+    const pickImage = async() =>{
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            allowsEditing: true,
+            aspect: [3,3],
+            quality: 1,
+        });
+
+        console.log(result);
+
+        if(!result.canceled){
+            setImage(result.assets)
+        }
+    }
+
 
     return(
         <View style = {styles.container}>
@@ -58,7 +73,7 @@ const CreateScreen = ({navigation}) => {
                         <Button
                             color={'#C39581'}
                             title="Choose Image"
-                            onPress={() => alert("Pressed the Choose Image Button")}
+                            onPress={() => pickImage()}
                             />
                     </View>
                 
