@@ -6,7 +6,7 @@ import BlankImageGallery from "../components/BlankImageGallery";
 
 const ListImage = (props) => {
     return(
-        <TouchableOpacity onPress={() => props.navigation.navigate("Closet")}>
+        <TouchableOpacity onPress={() => props.navigation.navigate("SavedItems")}>
             <Image
                 source = {props.image.background}
             />

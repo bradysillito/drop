@@ -10,6 +10,7 @@ import ClosetScreen from "./screens/ClosetScreen";
 import NewCatergoryScreen from './screens/NewCatergoryScreen';
 import AddFromClosetScreen from './screens/AddFromCloset';
 import AddFromSubClosetScreen from './screens/AddFromSubClosetScreen';
+import SavedItemsScreen from './screens/SavedItemsScreen';
 
 //Import Materials for the Bottom Tab
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
@@ -69,6 +70,7 @@ export default function App(){
           <Stack.Screen name = "NewCatergory" component={NewCatergoryScreen} options ={{headerShown: false}}/>
           <Stack.Screen name = "SubCloset" component={AddFromSubClosetScreen} options ={{headerShown: false}}/>
           <Stack.Screen name = "AddFromCloset" component= {AddFromClosetScreen} options = {{headerShown: false}}/>
+          <Stack.Screen name = "SavedItems" component= {SavedItemsScreen} options = {{headerShown: false}}/>
         </Stack.Navigator>
       </NavigationContainer>
   );
